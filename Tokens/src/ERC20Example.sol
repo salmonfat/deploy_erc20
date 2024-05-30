@@ -1,6 +1,9 @@
 pragma solidity ^0.8.22;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "./Pausable.sol";
+import "./BlackList.sol";
+
 
 contract Erc20Example is ERC20, Pausable, BlackList {
 
@@ -9,6 +12,5 @@ contract Erc20Example is ERC20, Pausable, BlackList {
         string memory _name, 
         string memory _symbol) ERC20(_name, _symbol) Ownable(msg.sender) {
     }
-
 
 }

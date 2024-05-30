@@ -2,11 +2,15 @@ pragma solidity ^0.8.22;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Pausable is Ownable{
+abstract contract Pausable is Ownable {
     bool public paused;
 
     event Pause();
     event Unpause();
+
+    constructor() {
+        paused = false;
+    }
 
     modifier whenNotPaused() {
         require(!paused);

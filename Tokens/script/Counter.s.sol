@@ -4,9 +4,13 @@ pragma solidity ^0.8.13;
 import {Script, console} from "forge-std/Script.sol";
 
 contract CounterScript is Script {
-    function setUp() public {}
+
+    function setUp() view public {
+        console.log("Setting up the script...");
+    }
 
     function run() public {
+        console.log("Running the script...");
         vm.broadcast();
     }
 }
