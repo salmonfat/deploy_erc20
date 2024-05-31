@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import "src/Erc20Example.sol";
+import "src/ERC20Example.sol";
 
 contract Erc20Script is Script {
 

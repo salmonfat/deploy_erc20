@@ -1,14 +1,22 @@
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.22;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 abstract contract BlackList is Ownable{
-    mapping (address => bool) public blackList;
+    error InvalidAddress(address target);
 
     event Blacklisted(address indexed target);
     event UnBlacklisted(address indexed target);
 
-    constructor() {}
+    mapping (address => bool) public blackList;
+    
+    modifier isNotBlackListed(address _maker) {
+        if(blackList[_maker]){
+            revert InvalidAddress(_maker);
+        }
+        _;
+    }
 
     function getBlackListStatus(address _maker) external view returns (bool) {
         return blackList[_maker];
