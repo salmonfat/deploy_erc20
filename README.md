@@ -28,3 +28,22 @@ export $(grep -v '^#' .env | xargs)
 # 執行合約發布腳本
 forge script script/ERC20NewScript.s.sol:Erc20NewScript --rpc-url $SEPOLIA_RPC_URL --broadcast --verify
 ```
+
+## 驗證合約
+
+``` shell
+
+# 若有 abi 要先取得 abi
+abiConstruct=$(cast abi-encode "constructor(string,string)" "Erc Example Token" "EET")
+
+forge verify-contract --chain-id 11155111 --etherscan-api-key $ETHERSCAN_API_KEY $DEPLOYED_CONTRACT_ADDRESS CONTRACT_PATH:CONTRACT_NAME
+# example:
+#     forge verify-contract --chain-id 11155111 --etherscan-api-key $ETHERSCAN_API_KEY 0xF999Bb94294b537cd423Cd61cda016482cd602A9 src/ERC20Example.sol:ERC20Example
+#     forge verify-contract --chain-id 11155111 --etherscan-api-key $ETHERSCAN_API_KEY 0xF999Bb94294b537cd423Cd61cda016482cd602A9 src/ERC20Example.sol:ERC20Example --constructor-args $abiConstruct
+
+
+
+forge verify-check --chain-id 11155111 <GUID> <your_etherscan_api_key>
+# example:
+#     forge verify-check --chain-id 11155111 8xec7ecrt5rqyhzjpmhizwffcsnt3hzebqra3arxcgapw168ny $ETHERSCAN_API_KEY
+```
