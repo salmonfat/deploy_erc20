@@ -1,20 +1,43 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.22;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "./Pausable.sol";
 import "./BlackList.sol";
+import "./ERC20.sol";
 
 
-contract ERC20Example is ERC20, Pausable, BlackList {
+contract ERC20ExampleV1 is ERC20, Pausable, BlackList{
     error InvaildAmount(address target, uint256 amount);
 
     event Mint(address indexed dst, uint256 amount);
     event Burn(address indexed src, uint256 amount);
 
-    constructor(
-        string memory _name, 
-        string memory _symbol) ERC20(_name, _symbol) Ownable(msg.sender) {
+    bool public _initialized;
+    uint8 public _initializedVersion;
+    
+    function initialize(
+        string memory name_,
+        string memory symbol_) external  {
+        require(!_initialized && _initializedVersion == 0, "Contract instance has already been initialized");
+
+        // set erc20 name and symbol
+        _name = name_;
+        _symbol = symbol_;
+
+        // set admin owner
+        if (msg.sender == address(0)) {
+            revert OwnableInvalidOwner(address(0));
+        }
+        _transferOwnership(msg.sender);
+
+        // set paused to false
+        paused = false;
+
+        // set initialized to true
+        _initialized = true;
+
+        // set initialized version
+        _initializedVersion = 1;
     }
 
     // 當用户存入时，mint等量的ERC20代幣
@@ -43,6 +66,10 @@ contract ERC20Example is ERC20, Pausable, BlackList {
 
     function transferFrom(address from, address to, uint256 value) public override whenNotPaused isNotBlackListed(from) isNotBlackListed(to) returns (bool) {
         return super.transferFrom(from, to, value);
+    }
+
+    function version() public pure returns (string memory) {
+        return "v0.0.1";
     }
 
 
