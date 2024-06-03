@@ -47,3 +47,15 @@ forge verify-check --chain-id 11155111 <GUID> <your_etherscan_api_key>
 # example:
 #     forge verify-check --chain-id 11155111 8xec7ecrt5rqyhzjpmhizwffcsnt3hzebqra3arxcgapw168ny $ETHERSCAN_API_KEY
 ```
+
+
+## Beacon Proxy Script
+```
+ forge script script/BeaconProxy.s.sol:BeaconProxyScript --rpc-url $SEPOLIA_RPC_URL --broadcast --verify
+ ```
+
+ example contract address:
+ * BeaconProxy address:  0x8467fAb05fC2C9e779636FA28f63bD4b9219D21C
+ * BeaconProxy2 address:  0x6fDEeb588f4FdEf5090FC7DAaA22087aaD2F904c
+ * UpgradeableBeacon address:  0x3890A2933e5B529B6074C5B8da564e043Ef7f224
+ * ERC20Example address:  0x3AF582e97A2A776Accad692DffeB732ABA168ae2
