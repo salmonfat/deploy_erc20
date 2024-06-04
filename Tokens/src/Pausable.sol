@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.22;
 
-// import "@openzeppelin/contracts/access/Ownable.sol";
-import "./Ownable.sol";
 
-abstract contract Pausable is Ownable {
-    bool public paused;
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "./ERC20Storage.sol";
+
+abstract contract Pausable is OwnableUpgradeable, ERC20ExampleV1Storage {
 
     event Pause();
     event Unpause();

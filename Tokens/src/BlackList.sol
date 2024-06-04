@@ -1,15 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.22;
+pragma solidity ^0.8.26;
 
-import "./Ownable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "./ERC20Storage.sol";
 
-abstract contract BlackList is Ownable{
+abstract contract BlackList is OwnableUpgradeable, ERC20ExampleV1Storage{
     error InvalidAddress(address target);
 
     event Blacklisted(address indexed target);
     event UnBlacklisted(address indexed target);
-
-    mapping (address => bool) public blackList;
     
     modifier isNotBlackListed(address _maker) {
         if(blackList[_maker]){
@@ -30,5 +29,9 @@ abstract contract BlackList is Ownable{
     function removeBlackList (address _clearedUser) public onlyOwner {
         blackList[_clearedUser] = false;
         emit UnBlacklisted(_clearedUser);
+    }
+
+    function getOwner() external view returns (address) {
+        return owner();
     }
 }

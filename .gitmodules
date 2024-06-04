@@ -4,3 +4,9 @@
 [submodule "Tokens/lib/openzeppelin-contracts"]
 	path = Tokens/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "Tokens/lib/openzeppelin-contracts-upgradeable"]
+	path = Tokens/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "Tokens/lib/openzeppelin-foundry-upgrades"]
+	path = Tokens/lib/openzeppelin-foundry-upgrades
+	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
