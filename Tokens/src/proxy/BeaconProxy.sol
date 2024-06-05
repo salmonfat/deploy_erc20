@@ -1,4 +1,4 @@
-pragma solidity ^0.8.22;
+pragma solidity ^0.8.26;
 
 import "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 

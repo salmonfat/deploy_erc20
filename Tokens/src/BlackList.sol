@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.26;
 
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
@@ -31,7 +30,4 @@ abstract contract BlackList is OwnableUpgradeable, ERC20ExampleV1Storage{
         emit UnBlacklisted(_clearedUser);
     }
 
-    function getOwner() external view returns (address) {
-        return owner();
-    }
 }

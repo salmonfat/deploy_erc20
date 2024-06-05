@@ -1,4 +1,4 @@
-pragma solidity ^0.8.22;
+pragma solidity ^0.8.26;
 
 import {ERC20ExampleSetupTest} from "./ERC20ExampleSetup.t.sol";
 

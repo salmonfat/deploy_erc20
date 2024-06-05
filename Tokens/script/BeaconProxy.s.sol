@@ -14,13 +14,13 @@ contract BeaconProxyScript is Script{
 
     function run() public {
         uint256 ownerPK = vm.envUint("OWNER_PRIVATE_KEY");
-
+        address owner = vm.addr(ownerPK);
         vm.startBroadcast(ownerPK);
         
         erc20 = new ERC20ExampleV1();
         upgradeableBeacon = new UpgradeableBeaconExample(
             address(erc20), 
-            msg.sender);
+            owner);
         beaconProxy = new BeaconProxyExample(
             address(upgradeableBeacon), 
             abi.encodeWithSelector(
@@ -39,7 +39,7 @@ contract BeaconProxyScript is Script{
         console.log("UpgradeableBeacon address: ", address(upgradeableBeacon));
         console.log("ERC20Example address: ", address(erc20));
 
-        sender = msg.sender;
+        sender = owner;
         vm.stopBroadcast();
     }
 }

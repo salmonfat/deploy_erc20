@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.26;
 
 import "./BlackList.sol";
@@ -29,7 +28,7 @@ contract ERC20ExampleV1 is ERC20Upgradeable, Pausable, BlackList{
 
 
 
-    // 當用户存入时，mint等量的ERC20代幣
+    // when user deposit, mint the same amount of ERC20 token
     function mint(address to, uint amount) public whenNotPaused onlyOwner isNotBlackListed(to) {
         if(!(amount > 0)) {
             revert InvaildAmount(to, amount);
@@ -39,7 +38,7 @@ contract ERC20ExampleV1 is ERC20Upgradeable, Pausable, BlackList{
         emit Mint(to, amount);
     }
 
-    // 當用戶提款用户，burn等量ERC20代幣
+    // when user withdraw, burn the same amount of ERC20 token
     function burn(address to, uint amount) public whenNotPaused onlyOwner isNotBlackListed(to) {
         if(!(balanceOf(to) >= amount)) {
             revert InvaildAmount(to, amount);

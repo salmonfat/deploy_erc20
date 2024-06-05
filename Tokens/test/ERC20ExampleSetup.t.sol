@@ -26,7 +26,7 @@ contract ERC20ExampleSetupTest is Test, BeaconProxyScript {
         run();
 
         erc20Example = ERC20ExampleV1(address(beaconProxy));
-        owner = erc20Example.getOwner();
+        owner = sender;
         user1 = makeAddr("user1");
         user2 = makeAddr("user2");
         user3 = makeAddr("user3");
