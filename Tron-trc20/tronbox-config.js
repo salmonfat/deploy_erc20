@@ -55,9 +55,6 @@ Then, run the migration with:
   //     runs: 200
   //   },
   //   evmVersion: 'istanbul'
-  },
-  plugins: ['truffle-plugin-verify'],
-  api_keys: {
-    tronscan: process.env.TRONSCAN_API_KEY
+  // },
   }
 }

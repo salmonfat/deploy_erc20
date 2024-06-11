@@ -1,19 +1,22 @@
-const { deployBeacon, deployBeaconProxy } = require('@openzeppelin/truffle-upgrades');
-
-const TRC20ExampleV1 = artifacts.require("./TRC20ExampleV1.sol");
-
+const UUPSProxy = artifacts.require("./TronUUPSProxy");
+const UUPSTRC20ExampleV1 = artifacts.require("./UUPSTRC20ExampleV1");
+const web3ABI = require('web3-eth-abi');
 module.exports = async function (deployer) {
-  try {
-    // Setup tronbox deployer
-    deployer.trufflePlugin = true;
-    const beacon = await deployBeacon(TRC20ExampleV1, { deployer });
-    console.info('-Beacon deployed', beacon.address);
-    const instance1 = await deployBeaconProxy(beacon, TRC20ExampleV1, ["Trc20 beacon","TB"], { deployer,  initializer: 'initialize'});
-    console.info('-Deployed-1', instance1.address);
-    const instance2 = await deployBeaconProxy(beacon, TRC20ExampleV1, ["Trc20 beacon22","TB22"], { deployer,  initializer: 'initialize'});
-    console.info('-Deployed-2', instance2.address);
+  await deployer.deploy(UUPSTRC20ExampleV1);
+  const data = web3ABI.encodeFunctionCall({
+    name: 'initialize',
+    type: 'function',
+    inputs: [
+      {
+        type: 'string',
+        name: 'name'
+      },
+      {
+        type: 'string',
+        name: 'symbol'
+      }
+    ]
+    },['Trc20 UUPS', "TUUPS"]);
+  await deployer.deploy(UUPSProxy, UUPSTRC20ExampleV1.address, data);
+}
 
-  } catch (error) {
-    console.error('-Beacon: deploy box error', error);
-  }
-};
