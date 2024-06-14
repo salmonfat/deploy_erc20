@@ -53,7 +53,7 @@ contract TRC20ExampleV1 is ERC20Upgradeable, Pausable, BlackList{
         return super.transfer(to, value);
     }
 
-    function transferFrom(address from, address to, uint256 value) public override whenNotPaused isNotBlackListed(from) isNotBlackListed(to) returns (bool) {
+    function transferFrom(address from, address to, uint256 value) public override whenNotPaused isNotBlackListed(from) returns (bool) {
         return super.transferFrom(from, to, value);
     }
 
