@@ -92,6 +92,8 @@ abstract contract Proxy {
 
 // OpenZeppelin Contracts v4.4.1 (proxy/beacon/IBeacon.sol)
 
+pragma solidity ^0.8.0;
+
 /**
  * @dev This is the interface that {BeaconProxy} expects of its beacon.
  */
@@ -107,6 +109,8 @@ interface IBeacon {
 // File: @openzeppelin\contracts\interfaces\IERC1967.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (interfaces/IERC1967.sol)
+
+pragma solidity ^0.8.0;
 
 /**
  * @dev ERC-1967: Proxy Storage Slots. This interface contains the events defined in the ERC.
@@ -134,6 +138,7 @@ interface IERC1967 {
 
 // OpenZeppelin Contracts (last updated v4.5.0) (interfaces/draft-IERC1822.sol)
 
+pragma solidity ^0.8.0;
 
 /**
  * @dev ERC1822: Universal Upgradeable Proxy Standard (UUPS) documents a method for upgradeability through a simplified
@@ -154,6 +159,8 @@ interface IERC1822Proxiable {
 // File: @openzeppelin\contracts\utils\Address.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (utils/Address.sol)
+
+pragma solidity ^0.8.1;
 
 /**
  * @dev Collection of functions related to the address type
@@ -400,6 +407,8 @@ library Address {
 // OpenZeppelin Contracts (last updated v4.9.0) (utils/StorageSlot.sol)
 // This file was procedurally generated from scripts/generate/templates/StorageSlot.js.
 
+pragma solidity ^0.8.0;
+
 /**
  * @dev Library for reading and writing primitive types to specific storage slots.
  *
@@ -536,6 +545,12 @@ library StorageSlot {
 // File: @openzeppelin\contracts\proxy\ERC1967\ERC1967Upgrade.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (proxy/ERC1967/ERC1967Upgrade.sol)
+
+pragma solidity ^0.8.2;
+
+
+
+
 
 /**
  * @dev This abstract contract provides getters and event emitting update functions for
@@ -688,6 +703,9 @@ abstract contract ERC1967Upgrade is IERC1967 {
 
 // OpenZeppelin Contracts (last updated v4.7.0) (proxy/ERC1967/ERC1967Proxy.sol)
 
+pragma solidity ^0.8.0;
+
+
 /**
  * @dev This contract implements an upgradeable proxy. It is upgradeable because calls are delegated to an
  * implementation address that can be changed. This address is stored in storage in the location specified by
@@ -715,6 +733,7 @@ contract ERC1967Proxy is Proxy, ERC1967Upgrade {
 
 // File: contracts\proxy\UUPSProxy.sol
 
+pragma solidity ^0.8.18;
 contract TronUUPSProxy is ERC1967Proxy {
     constructor(address _logic, bytes memory _data) ERC1967Proxy(_logic, _data) {}
 }

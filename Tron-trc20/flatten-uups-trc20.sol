@@ -2,7 +2,6 @@
 
 // File: @openzeppelin\contracts-upgradeable\utils\AddressUpgradeable.sol
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.9.0) (utils/Address.sol)
 
 pragma solidity ^0.8.1;
@@ -250,6 +249,9 @@ library AddressUpgradeable {
 // File: @openzeppelin\contracts-upgradeable\proxy\utils\Initializable.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (proxy/utils/Initializable.sol)
+
+pragma solidity ^0.8.2;
+
 /**
  * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed
  * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an
@@ -414,6 +416,8 @@ abstract contract Initializable {
 
 // OpenZeppelin Contracts (last updated v4.9.4) (utils/Context.sol)
 
+pragma solidity ^0.8.0;
+
 /**
  * @dev Provides information about the current execution context, including the
  * sender of the transaction and its data. While these are generally available
@@ -453,6 +457,9 @@ abstract contract ContextUpgradeable is Initializable {
 // File: @openzeppelin\contracts-upgradeable\access\OwnableUpgradeable.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (access/Ownable.sol)
+
+pragma solidity ^0.8.0;
+
 
 /**
  * @dev Contract module which provides a basic access control mechanism, where
@@ -544,6 +551,8 @@ abstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {
 
 // File: contracts\TRC20Storage.sol
 
+pragma solidity ^0.8.18;
+
 contract TRC20ExampleV1Storage {
     string internal version;
     bool internal paused;
@@ -552,6 +561,7 @@ contract TRC20ExampleV1Storage {
 
 // File: contracts\BlackList.sol
 
+pragma solidity ^0.8.18;
 abstract contract BlackList is OwnableUpgradeable, TRC20ExampleV1Storage{
     error InvalidAddress(address target);
 
@@ -583,6 +593,7 @@ abstract contract BlackList is OwnableUpgradeable, TRC20ExampleV1Storage{
 
 // File: contracts\Pausable.sol
 
+pragma solidity ^0.8.18;
 abstract contract Pausable is OwnableUpgradeable, TRC20ExampleV1Storage {
 
     event Pause();
@@ -612,6 +623,9 @@ abstract contract Pausable is OwnableUpgradeable, TRC20ExampleV1Storage {
 // File: @openzeppelin\contracts-upgradeable\token\ERC20\IERC20Upgradeable.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (token/ERC20/IERC20.sol)
+
+pragma solidity ^0.8.0;
+
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
  */
@@ -690,6 +704,8 @@ interface IERC20Upgradeable {
 
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)
 
+pragma solidity ^0.8.0;
+
 /**
  * @dev Interface for the optional metadata functions from the ERC20 standard.
  *
@@ -715,6 +731,11 @@ interface IERC20MetadataUpgradeable is IERC20Upgradeable {
 // File: @openzeppelin\contracts-upgradeable\token\ERC20\ERC20Upgradeable.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (token/ERC20/ERC20.sol)
+
+pragma solidity ^0.8.0;
+
+
+
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -1088,6 +1109,8 @@ contract ERC20Upgradeable is Initializable, ContextUpgradeable, IERC20Upgradeabl
 
 // OpenZeppelin Contracts (last updated v4.5.0) (interfaces/draft-IERC1822.sol)
 
+pragma solidity ^0.8.0;
+
 /**
  * @dev ERC1822: Universal Upgradeable Proxy Standard (UUPS) documents a method for upgradeability through a simplified
  * proxy whose upgrades are fully controlled by the current implementation.
@@ -1108,6 +1131,8 @@ interface IERC1822Proxiable {
 
 // OpenZeppelin Contracts v4.4.1 (proxy/beacon/IBeacon.sol)
 
+pragma solidity ^0.8.0;
+
 /**
  * @dev This is the interface that {BeaconProxy} expects of its beacon.
  */
@@ -1123,6 +1148,8 @@ interface IBeacon {
 // File: @openzeppelin\contracts\interfaces\IERC1967.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (interfaces/IERC1967.sol)
+
+pragma solidity ^0.8.0;
 
 /**
  * @dev ERC-1967: Proxy Storage Slots. This interface contains the events defined in the ERC.
@@ -1149,6 +1176,8 @@ interface IERC1967 {
 // File: @openzeppelin\contracts\utils\Address.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (utils/Address.sol)
+
+pragma solidity ^0.8.1;
 
 /**
  * @dev Collection of functions related to the address type
@@ -1395,6 +1424,8 @@ library Address {
 // OpenZeppelin Contracts (last updated v4.9.0) (utils/StorageSlot.sol)
 // This file was procedurally generated from scripts/generate/templates/StorageSlot.js.
 
+pragma solidity ^0.8.0;
+
 /**
  * @dev Library for reading and writing primitive types to specific storage slots.
  *
@@ -1531,6 +1562,12 @@ library StorageSlot {
 // File: @openzeppelin\contracts\proxy\ERC1967\ERC1967Upgrade.sol
 
 // OpenZeppelin Contracts (last updated v4.9.0) (proxy/ERC1967/ERC1967Upgrade.sol)
+
+pragma solidity ^0.8.2;
+
+
+
+
 
 /**
  * @dev This abstract contract provides getters and event emitting update functions for
@@ -1683,6 +1720,9 @@ abstract contract ERC1967Upgrade is IERC1967 {
 
 // OpenZeppelin Contracts (last updated v4.9.0) (proxy/utils/UUPSUpgradeable.sol)
 
+pragma solidity ^0.8.0;
+
+
 /**
  * @dev An upgradeability mechanism designed for UUPS proxies. The functions included here can perform an upgrade of an
  * {ERC1967Proxy}, when this contract is set as the implementation behind such a proxy.
@@ -1777,6 +1817,7 @@ abstract contract UUPSUpgradeable is IERC1822Proxiable, ERC1967Upgrade {
 
 // File: contracts\UUPSTRC20ExampleV1.sol
 
+pragma solidity ^0.8.18;
 contract UUPSTRC20ExampleV1 is ERC20Upgradeable, Pausable, BlackList, UUPSUpgradeable{
     error InvaildAmount(address target, uint256 amount);
     
