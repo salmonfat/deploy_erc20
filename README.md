@@ -69,7 +69,7 @@ modify .env.example to .env
 ```
 export PRIVATE_KEY_NILE=[YOUR_PRIVATE_KEY]
 ```
-private key 在 tronlink錢包的export account選項中查詢
+private key 在 tronlink錢包的export account選項中查詢<br>
 ![tronlink-pk-location](./Tron-trc20/tronlink-pk-location.png)
 # 執行腳本
 
