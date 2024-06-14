@@ -1,3 +1,4 @@
+# Ethereum
 # 執行腳本
 
 ``` shell
@@ -59,3 +60,30 @@ forge verify-check --chain-id 11155111 <GUID> <your_etherscan_api_key>
  * BeaconProxy2 address:  0x6fDEeb588f4FdEf5090FC7DAaA22087aaD2F904c
  * UpgradeableBeacon address:  0x3890A2933e5B529B6074C5B8da564e043Ef7f224
  * ERC20Example address:  0x3AF582e97A2A776Accad692DffeB732ABA168ae2
+
+
+# Tron
+
+## 配置環境變量
+modify .env.example to .env
+```
+export PRIVATE_KEY_NILE=[YOUR_PRIVATE_KEY]
+```
+private key 在 tronlink錢包的export account選項中查詢
+![tronlink-pk-location](./Tron-trc20/tronlink-pk-location.png)
+# 執行腳本
+
+
+trc20 uups proxy contract + logic contract / trc20 contract 兩者請分開部屬，
+到migrations/2_deploy_contracts.js釋放註解
+
+```
+tronbox migrate --reset --compile-all --network nile
+```
+
+## Contract Adress
+* uups proxy trc20<br>
+logic contract -- UUPSTRC20ExampleV1:TErtkKcLzQHSk7SwbeKyoCyPWUaVGNdmEm<br>
+proxy -- TronUUPSProxy:TH4dhDuQxaRqL49Rey8HfBxbkHYspH4VXM
+* trc20<br>
+UUPSTRC20ExampleV1:TX3LS6t9KD3yp4P73dQki4L3aZDGs7ErTz
