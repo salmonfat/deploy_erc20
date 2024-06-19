@@ -58,6 +58,20 @@ contract UUPSTRC20ExampleV1 is ERC20Upgradeable, Pausable, BlackList, UUPSUpgrad
         return super.transferFrom(from, to, value);
     }
 
+    function decimals() public pure override returns (uint8) {
+        return 6;
+    }
+
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
+}
+
+contract UUPSTRC20ExampleV2 is UUPSTRC20ExampleV1{
+    function initializeV2() public {
+        version = "v0.0.2";
+    }
+
+    function hello() public pure returns (string memory) {
+        return "hello";
+    } 
 }
