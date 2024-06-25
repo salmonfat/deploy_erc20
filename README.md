@@ -61,6 +61,8 @@ forge verify-check --chain-id 11155111 <GUID> <your_etherscan_api_key>
  * UpgradeableBeacon address:  0x3890A2933e5B529B6074C5B8da564e043Ef7f224
  * ERC20Example address:  0x3AF582e97A2A776Accad692DffeB732ABA168ae2
 
+ * ERC20Example no proxy address:  0x2c03018E160Bb0A28201b3424f2d3F977e9FeCA1
+
 
 # Tron
 
@@ -78,7 +80,7 @@ trc20 uups proxy contract + logic contract / trc20 contract 兩者請分開部�
 到migrations/2_deploy_contracts.js釋放註解
 
 ```
-tronbox migrate --reset --compile-all --network nile
+source .env && tronbox.cmd migrate --reset --compile-all --network nile
 ```
 
 ## Contract Adress
@@ -87,3 +89,5 @@ logic contract -- UUPSTRC20ExampleV1:TErtkKcLzQHSk7SwbeKyoCyPWUaVGNdmEm<br>
 proxy -- TronUUPSProxy:TH4dhDuQxaRqL49Rey8HfBxbkHYspH4VXM
 * trc20<br>
 UUPSTRC20ExampleV1:TX3LS6t9KD3yp4P73dQki4L3aZDGs7ErTz
+
+* ERC20Example no proxy address:  TNygkcscRZcqjei9D5b8WT9LoMnra8fXi7

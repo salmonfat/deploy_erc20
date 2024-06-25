@@ -3,6 +3,7 @@
     "@openzeppelin/contracts": "^4.9.6",
     "@openzeppelin/contracts-upgradeable": "^4.9.6",
     "base58-js": "^2.0.0",
+    "dotenv": "^16.4.5",
     "tronweb": "^5.3.2"
   },
   "devDependencies": {

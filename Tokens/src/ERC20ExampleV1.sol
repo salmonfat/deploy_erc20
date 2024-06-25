@@ -56,5 +56,7 @@ contract ERC20ExampleV1 is ERC20Upgradeable, Pausable, BlackList{
         return super.transferFrom(from, to, value);
     }
 
-
+    function decimals() public view override returns (uint8) {
+        return 6;
+    }
 }

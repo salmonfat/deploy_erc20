@@ -1,20 +1,17 @@
 const UUPSProxy = artifacts.require('TronUUPSProxy');
 const UUPSTRC20ExampleV1 = artifacts.require('UUPSTRC20ExampleV1');
+const TB_coin = artifacts.require('TB_coin');
 
 contract('init test', async function (deployer) {
     let instance
-    let proxy
-    let proxyContract
     
     beforeEach(async () => {
-        instance = await UUPSTRC20ExampleV1.deployed();
-        proxy = await UUPSProxy.deployed(instance.address,"0x");
-        proxyContract = await UUPSTRC20ExampleV1.at(proxy.address);
+        instance = await TB_coin.deployed();
       });
 
     it('check init', async () => {
-        assert.equal(await proxyContract.decimals(),6);
-        assert.equal(await proxyContract._name(),'TB coin');
-        assert.equal(await proxyContract.symbol(),"TB");
+        assert.equal(await instance.decimals(),6);
+        assert.equal(await instance._name(),'TB coin');
+        assert.equal(await instance.symbol(),"TB");
       });      
 });
