@@ -54,7 +54,7 @@ contract BeaconProxyScript is Script{
         address owner = vm.addr(ownerPK);
         vm.startBroadcast(ownerPK);
         
-        erc20 = new TB_coin("TB coin", "TB");
+        erc20 = new TB_coin("TB Coin", "TB");
         console.log("ERC20Example address: ", address(erc20));
 
         sender = owner;

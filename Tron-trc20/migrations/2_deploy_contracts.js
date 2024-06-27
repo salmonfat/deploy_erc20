@@ -34,5 +34,5 @@
 // /*---------------trc20 contract no proxy-----------------*/
 const TB_coin = artifacts.require("./TB_coin");
 module.exports = async function (deployer) {
-    await deployer.deploy(TB_coin,"TB coin","TB");
+    await deployer.deploy(TB_coin,"TB Coin","TB");
 }
