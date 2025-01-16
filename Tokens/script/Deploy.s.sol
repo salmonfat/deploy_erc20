@@ -4,7 +4,7 @@ import {Script, console} from "forge-std/Script.sol";
 import {ERC20ExampleV1} from "src/ERC20ExampleV1.sol";
 import {BeaconProxyExample} from "src/proxy/BeaconProxy.sol";
 import {UpgradeableBeaconExample} from "src/proxy/UpgradeableBeacon.sol";
-import {TB_coin} from "src/TB_coin.sol";
+import {TB_Dollar} from "src/TB_coin.sol";
 
 // contract BeaconProxyScript is Script{
 //     BeaconProxyExample beaconProxy;
@@ -45,8 +45,8 @@ import {TB_coin} from "src/TB_coin.sol";
 //     }
 // }
 
-contract BeaconProxyScript is Script{
-    TB_coin erc20;
+contract DeployScript is Script{
+    TB_Dollar erc20;
     address sender;
 
     function run() public {
@@ -54,7 +54,7 @@ contract BeaconProxyScript is Script{
         address owner = vm.addr(ownerPK);
         vm.startBroadcast(ownerPK);
         
-        erc20 = new TB_coin("TB Coin", "TB");
+        erc20 = new TB_Dollar("TB Dollar", "TBU");
         console.log("ERC20Example address: ", address(erc20));
 
         sender = owner;

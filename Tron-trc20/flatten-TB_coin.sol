@@ -792,7 +792,7 @@ abstract contract BlackList is Ownable2Step{
 
 }
 
-contract TB_coin is ERC20, Pausable, BlackList{
+contract TB_Dollar is ERC20, Pausable, BlackList{
 
     error InvaildAmount(address target, uint256 amount);
     event Mint(address indexed dst, uint256 amount);

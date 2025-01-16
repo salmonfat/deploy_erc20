@@ -2,7 +2,7 @@
 pragma solidity ^0.8.26;
 
 import {Test, console2} from "forge-std/Test.sol";
-import {BeaconProxyScript} from "script/BeaconProxy.s.sol";
+import {DeployScript} from "script/Deploy.s.sol";
 import {ERC20ExampleV1} from "src/ERC20ExampleV1.sol";
 import {BeaconProxy} from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import {UpgradeableBeacon} from "@openzeppelin/contracts/proxy/beacon/UpgradeableBeacon.sol";
@@ -19,7 +19,7 @@ import {Upgrades} from "openzeppelin-foundry-upgrades/Upgrades.sol";
 //     }
 // }
 
-contract BeaconPrpxyTest is BeaconProxyScript, Test {
+contract BeaconPrpxyTest is DeployScript, Test {
 
     // ERC20ExampleV1 public client1_v1;
     // ERC20ExampleV1 public client2_v1;

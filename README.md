@@ -1,8 +1,9 @@
 # Ethereum
-# 執行腳本
+
+# 測試合約
 
 ``` shell
-forge script script/ERC20.s.sol                                                                                                                     
+forge test
 ```
 
 # 合約發布
@@ -27,7 +28,7 @@ execute forge script to deploy contract on Sepolia testnet
 # 先把 .env 讀到 shell 裡面, 否則命令行吃不到
 export $(grep -v '^#' .env | xargs)
 # 執行合約發布腳本
-forge script script/ERC20NewScript.s.sol:Erc20NewScript --rpc-url $SEPOLIA_RPC_URL --broadcast --verify
+forge script script/Deploy.s.sol:DeployScript --rpc-url $SEPOLIA_RPC_URL --broadcast --verify
 ```
 
 ## 驗證合約
@@ -35,7 +36,7 @@ forge script script/ERC20NewScript.s.sol:Erc20NewScript --rpc-url $SEPOLIA_RPC_U
 ``` shell
 
 # 若有 abi 要先取得 abi
-abiConstruct=$(cast abi-encode "constructor(string,string)" "Erc Example Token" "EET")
+abiConstruct=$(cast abi-encode "constructor(string,string)" "TB Dollar" "TBU")
 
 forge verify-contract --chain-id 11155111 --etherscan-api-key $ETHERSCAN_API_KEY $DEPLOYED_CONTRACT_ADDRESS CONTRACT_PATH:CONTRACT_NAME
 # example:
@@ -49,19 +50,7 @@ forge verify-check --chain-id 11155111 <GUID> <your_etherscan_api_key>
 #     forge verify-check --chain-id 11155111 8xec7ecrt5rqyhzjpmhizwffcsnt3hzebqra3arxcgapw168ny $ETHERSCAN_API_KEY
 ```
 
-
-## Beacon Proxy Script
-```
- forge script script/BeaconProxy.s.sol:BeaconProxyScript --rpc-url $SEPOLIA_RPC_URL --broadcast --verify
- ```
-
- example contract address:
- * BeaconProxy address:  0x8467fAb05fC2C9e779636FA28f63bD4b9219D21C
- * BeaconProxy2 address:  0x6fDEeb588f4FdEf5090FC7DAaA22087aaD2F904c
- * UpgradeableBeacon address:  0x3890A2933e5B529B6074C5B8da564e043Ef7f224
- * ERC20Example address:  0x3AF582e97A2A776Accad692DffeB732ABA168ae2
-
- * ERC20Example no proxy address:  0x2c03018E160Bb0A28201b3424f2d3F977e9FeCA1
+ * ERC20Example address:  0x2c03018E160Bb0A28201b3424f2d3F977e9FeCA1
 
 
 # Tron
@@ -75,19 +64,11 @@ private key 在 tronlink錢包的export account選項中查詢<br>
 ![tronlink-pk-location](./Tron-trc20/tronlink-pk-location.png)
 # 執行腳本
 
-
-trc20 uups proxy contract + logic contract / trc20 contract 兩者請分開部屬，
-到migrations/2_deploy_contracts.js釋放註解
-
 ```
 source .env && tronbox.cmd migrate --reset --compile-all --network nile
 ```
 
 ## Contract Adress
-* uups proxy trc20<br>
-logic contract -- UUPSTRC20ExampleV1:TErtkKcLzQHSk7SwbeKyoCyPWUaVGNdmEm<br>
-proxy -- TronUUPSProxy:TH4dhDuQxaRqL49Rey8HfBxbkHYspH4VXM
-* trc20<br>
-UUPSTRC20ExampleV1:TX3LS6t9KD3yp4P73dQki4L3aZDGs7ErTz
 
-* ERC20Example no proxy address:  TNygkcscRZcqjei9D5b8WT9LoMnra8fXi7
+* ERC20Example address:<br>
+TNygkcscRZcqjei9D5b8WT9LoMnra8fXi7
