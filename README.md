@@ -1,5 +1,8 @@
 # Ethereum
 
+## 合約路徑
+./Tokens/src/TB_coin.sol
+
 # 測試合約
 
 ``` shell
@@ -57,6 +60,8 @@ forge verify-check --chain-id 11155111 <GUID> <your_etherscan_api_key>
 
 
 # Tron
+## 合約路徑
+./Tron-trc20/contracts/TB_coin.sol
 
 ## 配置環境變量
 modify .env.example to .env
