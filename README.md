@@ -24,12 +24,14 @@ ETHERSCAN_API_KEY=[YOUR_ETHERSCAN_API_KEY]
 ## 執行發布腳本及驗證合約
 
 execute forge script to deploy contract on Sepolia testnet
+
 ``` shell
 # 先把 .env 讀到 shell 裡面, 否則命令行吃不到
 export $(grep -v '^#' .env | xargs)
 # 執行合約發布腳本
 forge script script/Deploy.s.sol:DeployScript --rpc-url $SEPOLIA_RPC_URL --broadcast --verify
 ```
+* 如果是正式鏈就把 $SEPOLIA_RPC_URL 換成正是鏈的URL
 
 ## 驗證合約
 
@@ -68,6 +70,7 @@ private key 在 tronlink錢包的export account選項中查詢<br>
 ```
 source .env && tronbox.cmd migrate --reset --compile-all --network nile
 ```
+* 如要是正式鏈就把 network 旗標 nile 改成 main
 
 ## Contract Adress
 
