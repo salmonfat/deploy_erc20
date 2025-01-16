@@ -21,7 +21,7 @@ ETHERSCAN_API_KEY=[YOUR_ETHERSCAN_API_KEY]
 * OWNER_PRIVATE_KEY: 在錢包中可以取得私鑰
 * ETHERSCAN_API_KEY: 在etherscan上創建帳號取得api key, 網址: https://etherscan.io
 
-## 執行發布腳本
+## 執行發布腳本及驗證合約
 
 execute forge script to deploy contract on Sepolia testnet
 ``` shell
@@ -33,6 +33,7 @@ forge script script/Deploy.s.sol:DeployScript --rpc-url $SEPOLIA_RPC_URL --broad
 
 ## 驗證合約
 
+若部署合約時驗證失敗，可再次驗證
 ``` shell
 
 # 若有 abi 要先取得 abi
